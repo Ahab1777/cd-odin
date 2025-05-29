@@ -1,6 +1,10 @@
 import { ExperienceSlot } from "./ExperienceSlot"
+import { memo } from "react"
 
-export function Experience({experience, setExperience}) {
+export const Experience = memo( function Experience({
+    experience, 
+    setExperience
+}) {
 
     function addExperienceSlot(e){
         e.preventDefault()
@@ -18,8 +22,8 @@ export function Experience({experience, setExperience}) {
     }
 
     return (
-        <div className="experience-container">
-            <div className="experience slots-container">
+        <div className="experience-container">Experience
+            <div className="experience-slots-container">
                 {experience.length === 0 ? 
                 (<p>No experience entries</p>) : 
                 (
@@ -43,5 +47,5 @@ export function Experience({experience, setExperience}) {
         </div>
         
     )
-}
+})
 

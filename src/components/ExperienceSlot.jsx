@@ -1,4 +1,6 @@
-export function ExperienceSlot({
+import { memo } from "react";
+
+export const ExperienceSlot = memo(function ExperienceSlot({
     company, 
     position, 
     functions, 
@@ -28,7 +30,7 @@ export function ExperienceSlot({
 
     return (
         <div className="experience-slot">
-            <label>
+            <label className="company-label">
                 Company
                 <input 
                 type="text"
@@ -37,9 +39,10 @@ export function ExperienceSlot({
                 placeholder='---'
                 value={company}
                 data-field='company'
+                onChange={handleExperienceChange}
             />
             </label>
-            <label>
+            <label className="position-label">
                 Position/Title
                 <input 
                 type="text"
@@ -48,17 +51,19 @@ export function ExperienceSlot({
                 placeholder='---'
                 value={position}
                 data-field='position'
+                onChange={handleExperienceChange}
             />
             </label>
-            <label>
+            <label className="function-label">
                 Main Responsibilities
-                <input 
+                <textarea 
                 type="text"
                 minLength={100}
                 maxLength={1000}
                 placeholder='---'
                 value={functions}
                 data-field='functions'
+                onChange={handleExperienceChange}
             />
             </label>
             <div className="duration-div">
@@ -70,6 +75,7 @@ export function ExperienceSlot({
                             type='month'
                             value={startDate}
                             data-field='startDate'
+                            onChange={handleExperienceChange}
                             />
                         </label>
                     </fieldset>
@@ -80,6 +86,8 @@ export function ExperienceSlot({
                             type='month'
                             value={endDate}
                             data-field='endDate'
+                            onChange={handleExperienceChange}
+
                             />
                         </label>
                     </fieldset>
@@ -89,4 +97,4 @@ export function ExperienceSlot({
             <button className="delete-experience-slot" onClick={handleDeleteExperienceSlot}>Delete</button>
         </div>
     )
-}
+})

@@ -1,7 +1,11 @@
 import { EducationSlot } from "./EducationSlot";
-import { useState } from "react";
-
-export function Education({education, setEducation}) {
+import { memo
+    
+ } from "react";
+export const Education = memo(function Education({
+    education, 
+    setEducation
+}) {
 
     function addEducationSlot(e){
         e.preventDefault()
@@ -18,7 +22,7 @@ export function Education({education, setEducation}) {
     }
 
     return (
-        <div className="education-container">
+        <div className="education-container">Education
             <div className="education-slots-container">
                 {education.length === 0 ? 
                 (<p>No education entries.</p>) : 
@@ -44,4 +48,4 @@ export function Education({education, setEducation}) {
 
 
     
-}
+})

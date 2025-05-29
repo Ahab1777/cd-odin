@@ -61,11 +61,12 @@ export function Form() {
             education,
             experience
         });
-        console.log(form);
     }
 
     return (
-        <form className="form-container">
+        <form
+        onSubmit={handleSubmit}
+        className="form-container">
             <General 
             name={fullName} 
             setName={setFullName}
@@ -87,7 +88,6 @@ export function Form() {
             <input 
             type="submit" 
             className="submit-btn"
-            onSubmit={handleSubmit}
             />
         </form>
     )

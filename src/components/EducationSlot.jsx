@@ -1,4 +1,10 @@
-export function EducationSlot({educationIndex, education, setEducation}) {
+import { memo } from "react";
+
+export const EducationSlot = memo(function EducationSlot({
+    educationIndex, 
+    education, 
+    setEducation
+}) {
 
 
     function handleEducationChange(e) {
@@ -21,7 +27,7 @@ export function EducationSlot({educationIndex, education, setEducation}) {
 
     return(
         <div className="education-slot">
-            <label>
+            <label className="school-label">
                 School
                 <input 
                 type="text"
@@ -33,7 +39,7 @@ export function EducationSlot({educationIndex, education, setEducation}) {
                 onChange={handleEducationChange}
             />
             </label>
-            <label>
+            <label className="title-label">
                 Title/Degree
                 <input 
                 type="text"
@@ -75,4 +81,4 @@ export function EducationSlot({educationIndex, education, setEducation}) {
             <button className="delete-education-slot" onClick={handleDeleteEducationSlot}>Delete</button>
         </div>
     )
-}
+})

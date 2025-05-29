@@ -1,4 +1,15 @@
-export function General({name, setName, email, setEmail, phoneNumber, setPhoneNumber, github, setGithub}) {
+import { memo } from "react";
+
+export const General = memo(function General({
+    name, 
+    setName, 
+    email, 
+    setEmail, 
+    phoneNumber, 
+    setPhoneNumber, 
+    github, 
+    setGithub
+}) {
 
     //create handle function for each input field to update state
     const handleNameChange = (e) => {
@@ -66,4 +77,4 @@ export function General({name, setName, email, setEmail, phoneNumber, setPhoneNu
     </div>
 
     )
-}
+})
