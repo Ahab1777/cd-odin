@@ -1,13 +1,45 @@
 import { EducationSlot } from "./EducationSlot";
+import { useState } from "react";
 
-export function Education() {
+export function Education({education, setEducation}) {
 
-    //Apply logic for adding multiple degrees
+    function addEducationSlot(e){
+        e.preventDefault()
+        const newEmptySlot = {
+            school: '',
+            degree: '',
+            startDate: '1900-01',
+            endDate: '2099-01'
+        }
+        const newEducationArray = [...education, newEmptySlot];
+        setEducation(newEducationArray)
+        console.log(education)
+        console.log(newEducationArray)
+    }
 
     return (
-        <>
-            <EducationSlot></EducationSlot>
-        </>
+        <div className="education-container">
+            <div className="education-slots-container">
+                {education.length === 0 ? 
+                (<p>No education entries.</p>) : 
+                (
+                    education.map((item, i) => (
+                    <EducationSlot
+                        school={item.school}
+                        degree={item.degree}
+                        startDate={item.startDate}
+                        endDate={item.endDate}
+                        key={i}
+                        educationIndex={i}
+                        education={education}
+                        setEducation={setEducation}
+                    ></EducationSlot>))
+                )}    
+
+            </div>
+            <button onClick={addEducationSlot}>Add Education</button>
+            
+        </div>
     )
 
 

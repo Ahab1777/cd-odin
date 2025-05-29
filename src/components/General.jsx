@@ -1,18 +1,33 @@
+export function General({name, setName, email, setEmail, phoneNumber, setPhoneNumber, github, setGithub}) {
+
+    //create handle function for each input field to update state
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    }
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
+    const handlePhoneChange = (e) => {
+        setPhoneNumber(e.target.value);
+    }
+    const handleGithubChange = (e) => {
+        setGithub(e.target.value);
+    }
 
 
-export function General(){
     
     
     return (
-    <>
+    <div className="general-container">
         <label>
             Name
             <input 
             type="text"
             minLength={3}
             maxLength={30}
-            placeholder=""
-            value={'name'}
+            placeholder="Provide full name"
+            value={name}
+            onChange={handleNameChange}
             />
         </label>
         <label>
@@ -21,8 +36,9 @@ export function General(){
             type='email'
             minLength={10}
             maxLength={30}
-            placeholder=""
-            value={'name@gmail.com'}
+            placeholder="example@domain.com"
+            value={email}
+            onChange={handleEmailChange}
             />
         </label>
         <label>
@@ -31,8 +47,9 @@ export function General(){
             type='tel'
             minLength={3}
             maxLength={30}
-            placeholder=""
-            value={'000000000'}
+            placeholder="xxx-xxx-xxxx"
+            value={phoneNumber}
+            onChange={handlePhoneChange}
             />
         </label>
         <label>
@@ -41,11 +58,12 @@ export function General(){
             type="text"
             minLength={3}
             maxLength={30}
-            value={'name'}
+            value={github}
             placeholder='Add only subpath'
+            onChange={handleGithubChange}
             />
         </label>
-    </>
+    </div>
 
     )
 }

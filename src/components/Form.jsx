@@ -1,16 +1,94 @@
 import { General } from "./General"
 import { Education } from "./Education"
 import { Experience } from "./Experience"
+import { useState } from "react"
 
 export function Form() {
+    const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [github, setGithub] = useState('')
 
+    const [education, setEducation] = useState([
+        {
+            school: 'UFSC',
+            degree: 'Animal Science',
+            startDate: '2008-02',
+            endDate: '2013-05'
+        },
+        {
+            school: 'FGV',
+            degree: 'MBA',
+            startDate: '2016-02',
+            endDate: '2019-05'
+        }
+    ])
+    const [experience, setExperience] = useState([
+        {
+            company: 'JBS',
+            position: 'Production Supervisor',
+            functions: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia deserunt dignissimos neque aliquam, dolorem nisi corporis voluptatibus alias doloremque voluptatem',
+            startDate: '2014-02',
+            endDate: '2017-04'
 
+        },
+        {
+            company: 'Casa Paulina',
+            position: 'Owner',
+            functions: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia deserunt dignissimos neque aliquam, dolorem nisi corporis voluptatibus alias doloremque voluptatem',
+            startDate: '2018-11',
+            endDate: '2023-05'
+
+        }
+    ])
+
+    const [form, setForm] = useState({
+        fullName: '',
+        email: '',
+        phoneNumber: '',
+        github: '',
+        education: [],
+        experience: []
+    })
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setForm({
+            fullName,
+            email,
+            phoneNumber,
+            github,
+            education,
+            experience
+        });
+        console.log(form);
+    }
 
     return (
-        <div className="form-container">
-            <General></General>
-            <Education></Education>
-            <Experience></Experience>
-        </div>
+        <form className="form-container">
+            <General 
+            name={fullName} 
+            setName={setFullName}
+            email={email}
+            setEmail={setEmail}
+            phoneNumber={phoneNumber}
+            setPhoneNumber={setPhoneNumber}
+            github={github}
+            setGithub={setGithub}
+            ></General>
+            <Education
+            education={education}
+            setEducation={setEducation}
+            ></Education>
+            <Experience
+            experience={experience}
+            setExperience={setExperience}
+            ></Experience>
+            <input 
+            type="submit" 
+            className="submit-btn"
+            onSubmit={handleSubmit}
+            />
+        </form>
     )
 }
