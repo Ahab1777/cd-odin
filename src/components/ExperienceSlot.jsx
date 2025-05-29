@@ -8,7 +8,8 @@ export const ExperienceSlot = memo(function ExperienceSlot({
     endDate, 
     experienceIndex, 
     experience, 
-    setExperience
+    setExperience,
+    isEditing
 }) {
 
     function handleExperienceChange(e) {
@@ -40,6 +41,7 @@ export const ExperienceSlot = memo(function ExperienceSlot({
                 value={company}
                 data-field='company'
                 onChange={handleExperienceChange}
+                disabled={isEditing}
             />
             </label>
             <label className="position-label">
@@ -52,11 +54,12 @@ export const ExperienceSlot = memo(function ExperienceSlot({
                 value={position}
                 data-field='position'
                 onChange={handleExperienceChange}
+                disabled={isEditing}
             />
             </label>
             <label className="function-label">
                 Main Responsibilities
-                <textarea 
+                <textarea
                 type="text"
                 minLength={100}
                 maxLength={1000}
@@ -64,6 +67,7 @@ export const ExperienceSlot = memo(function ExperienceSlot({
                 value={functions}
                 data-field='functions'
                 onChange={handleExperienceChange}
+                disabled={isEditing}
             />
             </label>
             <div className="duration-div">
@@ -76,6 +80,7 @@ export const ExperienceSlot = memo(function ExperienceSlot({
                             value={startDate}
                             data-field='startDate'
                             onChange={handleExperienceChange}
+                            disabled={isEditing}
                             />
                         </label>
                     </fieldset>
@@ -87,14 +92,18 @@ export const ExperienceSlot = memo(function ExperienceSlot({
                             value={endDate}
                             data-field='endDate'
                             onChange={handleExperienceChange}
-
+                            disabled={isEditing}
                             />
                         </label>
                     </fieldset>
                 </div>
                 
             </div>
-            <button className="delete-experience-slot" onClick={handleDeleteExperienceSlot}>Delete</button>
+            <button 
+            className="delete-experience-slot" 
+            onClick={handleDeleteExperienceSlot}
+            disabled={isEditing}
+            >Delete</button>
         </div>
     )
 })

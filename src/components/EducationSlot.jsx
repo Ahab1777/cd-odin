@@ -3,7 +3,8 @@ import { memo } from "react";
 export const EducationSlot = memo(function EducationSlot({
     educationIndex, 
     education, 
-    setEducation
+    setEducation,
+    isEditing
 }) {
 
 
@@ -37,6 +38,7 @@ export const EducationSlot = memo(function EducationSlot({
                 data-field='school'
                 value={education[educationIndex].school}
                 onChange={handleEducationChange}
+                disabled={isEditing}
             />
             </label>
             <label className="title-label">
@@ -49,6 +51,7 @@ export const EducationSlot = memo(function EducationSlot({
                 data-field='degree'
                 value={education[educationIndex].degree}
                 onChange={handleEducationChange}
+                disabled={isEditing}
             />
             </label>
             <div className="duration-div">
@@ -61,6 +64,7 @@ export const EducationSlot = memo(function EducationSlot({
                             data-field='startDate'
                             value={education[educationIndex].startDate}
                             onChange={handleEducationChange}
+                            disabled={isEditing}
                             />
                         </label>
                     </fieldset>
@@ -72,13 +76,17 @@ export const EducationSlot = memo(function EducationSlot({
                             data-field='endDate'
                             value={education[educationIndex].endDate}
                             onChange={handleEducationChange}
-                            
+                            disabled={isEditing}
                             />
                         </label>
                     </fieldset>
                 </div>
             </div>
-            <button className="delete-education-slot" onClick={handleDeleteEducationSlot}>Delete</button>
+            <button 
+            className="delete-education-slot" 
+            onClick={handleDeleteEducationSlot}
+            disabled={isEditing}
+            >Delete</button>
         </div>
     )
 })

@@ -3,7 +3,8 @@ import { memo } from "react"
 
 export const Experience = memo( function Experience({
     experience, 
-    setExperience
+    setExperience,
+    isEditing
 }) {
 
     function addExperienceSlot(e){
@@ -38,12 +39,16 @@ export const Experience = memo( function Experience({
                             experienceIndex={i}
                             experience={experience}
                             setExperience={setExperience}
+                            isEditing={isEditing}
                         ></ExperienceSlot>
                     ))
                 )}
             </div>
 
-            <button onClick={addExperienceSlot}>Add Experience </button>
+            <button 
+            onClick={addExperienceSlot}
+            disabled={isEditing}
+            >Add Experience </button>
         </div>
         
     )

@@ -4,7 +4,8 @@ import { memo
  } from "react";
 export const Education = memo(function Education({
     education, 
-    setEducation
+    setEducation,
+    isEditing
 }) {
 
     function addEducationSlot(e){
@@ -28,7 +29,7 @@ export const Education = memo(function Education({
                 (<p>No education entries.</p>) : 
                 (
                     education.map((item, i) => (
-                    <EducationSlot
+                    <EducationSlot 
                         school={item.school}
                         degree={item.degree}
                         startDate={item.startDate}
@@ -37,11 +38,15 @@ export const Education = memo(function Education({
                         educationIndex={i}
                         education={education}
                         setEducation={setEducation}
+                        isEditing={isEditing}
                     ></EducationSlot>))
                 )}    
 
             </div>
-            <button onClick={addEducationSlot}>Add Education</button>
+            <button 
+            onClick={addEducationSlot}
+            disabled={isEditing}
+            >Add Education</button>
             
         </div>
     )

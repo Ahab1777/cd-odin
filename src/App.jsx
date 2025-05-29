@@ -6,14 +6,13 @@ function App() {
   return (
     <>
       <div className='app-container'>
-        {/* Header */}
-
+        <h1>CV Application - The Odin Project</h1>
         <Form>
-
-        {/* Main */}
-
         </Form>
-        {/* Footer */}
+        <footer class="cv-footer">
+          <p>Created as part of The Odin Project curriculum</p>
+          <p class="signature">© 2023 [Leonardo Pinho]</p>
+        </footer>
       </div>
 
     </>

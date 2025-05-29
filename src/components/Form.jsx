@@ -8,6 +8,11 @@ export function Form() {
     const [email, setEmail] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
     const [github, setGithub] = useState('')
+    const [isEditing, setIsEditing] = useState(true)
+
+    function toggleEdit() {
+        setIsEditing(!isEditing);
+    }
 
     const [education, setEducation] = useState([
         {
@@ -27,7 +32,7 @@ export function Form() {
         {
             company: 'JBS',
             position: 'Production Supervisor',
-            functions: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia deserunt dignissimos neque aliquam, dolorem nisi corporis voluptatibus alias doloremque voluptatem',
+            functions: 'Lorem ipsum dolor sit amet consectetur adipisicing elwwit. Quia deserunt dignissimos neque aliquam, dolorem nisi corporis voluptatibus alias doloremque voluptatem',
             startDate: '2014-02',
             endDate: '2017-04'
 
@@ -61,6 +66,7 @@ export function Form() {
             education,
             experience
         });
+        toggleEdit();
     }
 
     return (
@@ -76,19 +82,28 @@ export function Form() {
             setPhoneNumber={setPhoneNumber}
             github={github}
             setGithub={setGithub}
+            isEditing={isEditing}
             ></General>
             <Education
             education={education}
             setEducation={setEducation}
+            isEditing={isEditing}
             ></Education>
             <Experience
             experience={experience}
             setExperience={setExperience}
+            isEditing={isEditing}
             ></Experience>
-            <input 
-            type="submit" 
-            className="submit-btn"
-            />
+            {isEditing ? (
+                <button onClick={toggleEdit}>Edit</button>
+            ) : (
+                <input 
+                type="submit" 
+                className="submit-btn"
+                />
+            )}
+
+
         </form>
     )
 }

@@ -8,7 +8,8 @@ export const General = memo(function General({
     phoneNumber, 
     setPhoneNumber, 
     github, 
-    setGithub
+    setGithub,
+    isEditing
 }) {
 
     //create handle function for each input field to update state
@@ -39,6 +40,7 @@ export const General = memo(function General({
             placeholder="Provide full name"
             value={name}
             onChange={handleNameChange}
+            disabled={isEditing}
             />
         </label>
         <label>
@@ -50,6 +52,7 @@ export const General = memo(function General({
             placeholder="example@domain.com"
             value={email}
             onChange={handleEmailChange}
+            disabled={isEditing}
             />
         </label>
         <label>
@@ -61,6 +64,7 @@ export const General = memo(function General({
             placeholder="xxx-xxx-xxxx"
             value={phoneNumber}
             onChange={handlePhoneChange}
+            disabled={isEditing}
             />
         </label>
         <label>
@@ -72,6 +76,7 @@ export const General = memo(function General({
             value={github}
             placeholder='Add only subpath'
             onChange={handleGithubChange}
+            disabled={isEditing}
             />
         </label>
     </div>
